@@ -1,0 +1,270 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red25\green25\blue25;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c12941\c12941\c12941;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+Training arguments Namespace(adam_epsilon=1e-08, distributed_backend=None, early_stop_callback=False, fp_16=False, max_grad_norm=1.0, n_gpu=-1, num_workers=8, opt_level='O1', warmup_steps=0, weight_decay=0.0)\
+--------------------\
+Model arguments Namespace(hidden_dropout_prob=0.15, max_input_seq_length=128, model_name_or_path='bert-base-uncased', num_labels=4)\
+--------------------\
+Other arguments Namespace(DEV_FILE='/content/dev.csv', TRAIN_FILE='/content/train_easy_100_hard_100.csv', do_fast_dev_run=False, eval_batch_size=16, gradient_accumulation_steps=1, learning_rate=5e-05, limit_train_batches=-1, limit_val_batches=-1, max_train_samples=-1, num_train_epochs=5, output_dir='./', predictions_file='predictions.csv', save_last=False, save_top_k=-1, seed=42, train_batch_size=16, write_dev_predictions=True)\
+--------------------\
+Global seed set to 42\
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForSequenceClassification: ['cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight']\
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).\
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).\
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']\
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\
+GPU available: True, used: True\
+TPU available: False, using: 0 TPU cores\
+IPU available: False, using: 0 IPUs\
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]\
+\
+  | Name  | Type                          | Params\
+--------------------------------------------------------\
+0 | model | BertForSequenceClassification | 109 M \
+--------------------------------------------------------\
+109 M     Trainable params\
+0         Non-trainable params\
+109 M     Total params\
+437.941   Total estimated model params size (MB)\
+/usr/local/lib/python3.7/dist-packages/pytorch_lightning/callbacks/model_checkpoint.py:623: UserWarning: Checkpoint directory /content exists and is not empty.\
+  rank_zero_warn(f"Checkpoint directory \{dirpath\} exists and is not empty.")\
+Validation sanity check: 0it [00:00, ?it/s]/usr/local/lib/python3.7/dist-packages/torch/utils/data/dataloader.py:481: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.\
+  cpuset_checked))\
+Validation sanity check:   0% 0/2 [00:00<?, ?it/s]--------------------\
+Validation avg_loss:  tensor(1.7792, device='cuda:0')\
+Validation avg_acc:  tensor(0., device='cuda:0')\
+Writing predictions for /content/dev.csv to ./epoch_0_predictions.csv\
+--------------------\
+Global seed set to 42\
+Epoch 0:  31% 280/893 [03:01<06:37,  1.54it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Validating: 0it [00:00, ?it/s]\
+Validating:   0% 0/625 [00:00<?, ?it/s]\
+Epoch 0:  34% 300/893 [03:06<06:08,  1.61it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  36% 320/893 [03:11<05:42,  1.67it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  38% 340/893 [03:15<05:18,  1.74it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  40% 360/893 [03:20<04:56,  1.80it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  43% 380/893 [03:25<04:36,  1.85it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  45% 400/893 [03:29<04:18,  1.91it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  47% 420/893 [03:34<04:01,  1.96it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  49% 440/893 [03:38<03:45,  2.01it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  52% 460/893 [03:43<03:30,  2.06it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  54% 480/893 [03:48<03:16,  2.10it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  56% 500/893 [03:52<03:03,  2.15it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  58% 520/893 [03:57<02:50,  2.19it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  60% 540/893 [04:02<02:38,  2.23it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  63% 560/893 [04:06<02:26,  2.27it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  65% 580/893 [04:11<02:15,  2.31it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  67% 600/893 [04:15<02:05,  2.34it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  69% 620/893 [04:20<01:54,  2.38it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  72% 640/893 [04:25<01:44,  2.41it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  74% 660/893 [04:29<01:35,  2.45it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  76% 680/893 [04:34<01:25,  2.48it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  78% 700/893 [04:39<01:16,  2.51it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  81% 720/893 [04:43<01:08,  2.54it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  83% 740/893 [04:48<00:59,  2.57it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  85% 760/893 [04:52<00:51,  2.59it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  87% 780/893 [04:57<00:43,  2.62it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  90% 800/893 [05:02<00:35,  2.65it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  92% 820/893 [05:06<00:27,  2.67it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  94% 840/893 [05:11<00:19,  2.70it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  96% 860/893 [05:16<00:12,  2.72it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Epoch 0:  99% 880/893 [05:20<00:04,  2.74it/s, loss=0.601, v_num=1, train_loss_step=0.451, train_acc_step=0.812]\
+Validating:  99% 620/625 [02:23<00:01,  4.32it/s]\
+Validating: 100% 625/625 [02:25<00:00,  4.26it/s]--------------------\
+Validation avg_loss:  tensor(0.7944, device='cuda:0')\
+Validation avg_acc:  tensor(0.7092, device='cuda:0')\
+Writing predictions for /content/dev.csv to ./epoch_0_predictions.csv\
+--------------------\
+Epoch 0: 100% 893/893 [05:26<00:00,  2.73it/s, loss=0.589, v_num=1, train_loss_step=0.334, train_acc_step=0.938]\
+                                                 --------------------\
+Train avg_loss:  tensor(0.8341, device='cuda:0')\
+Train avg_acc:  tensor(0.6248, device='cuda:0')\
+--------------------\
+tcmalloc: large alloc 1092804608 bytes == 0x557b04bb2000 @  0x7f1437501615 0x557a1ce594cc 0x557a1cf3947a 0x557a1ce5ff0c 0x7f14327539e4 0x7f143275bb14 0x7f1432730a60 0x7f1389f0ef55 0x7f1389f0a88e 0x7f1389f12235 0x7f1432730fae 0x7f1431ea7aa8 0x557a1ce5d098 0x557a1ced04d9 0x557a1cecaced 0x557a1ce5dbda 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecfd00 0x557a1ce5dafa 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ce5dafa 0x557a1cecbc0d 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ceca9ee\
+tcmalloc: large alloc 1366007808 bytes == 0x557aa6ef6000 @  0x7f1437501615 0x557a1ce594cc 0x557a1cf3947a 0x557a1ce5ff0c 0x7f14327539e4 0x7f143275bb14 0x7f1432730a60 0x7f1389f0ef55 0x7f1389f0a88e 0x7f1389f12235 0x7f1432730fae 0x7f1431ea7aa8 0x557a1ce5d098 0x557a1ced04d9 0x557a1cecaced 0x557a1ce5dbda 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecfd00 0x557a1ce5dafa 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ce5dafa 0x557a1cecbc0d 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ceca9ee\
+tcmalloc: large alloc 1707515904 bytes == 0x557b4fec6000 @  0x7f1437501615 0x557a1ce594cc 0x557a1cf3947a 0x557a1ce5ff0c 0x7f14327539e4 0x7f143275bb14 0x7f1432730a60 0x7f1389f0ef55 0x7f1389f0a88e 0x7f1389f12235 0x7f1432730fae 0x7f1431ea7aa8 0x557a1ce5d098 0x557a1ced04d9 0x557a1cecaced 0x557a1ce5dbda 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecfd00 0x557a1ce5dafa 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ce5dafa 0x557a1cecbc0d 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ceca9ee\
+Epoch 1:  31% 280/893 [03:03<06:42,  1.52it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Validating: 0it [00:00, ?it/s]\
+Validating:   0% 0/625 [00:00<?, ?it/s]\
+Epoch 1:  34% 300/893 [03:09<06:13,  1.59it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  36% 320/893 [03:13<05:46,  1.65it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  38% 340/893 [03:18<05:22,  1.71it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  40% 360/893 [03:23<05:00,  1.77it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  43% 380/893 [03:27<04:40,  1.83it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  45% 400/893 [03:32<04:21,  1.88it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  47% 420/893 [03:36<04:04,  1.94it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  49% 440/893 [03:41<03:48,  1.99it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  52% 460/893 [03:46<03:32,  2.03it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  54% 480/893 [03:50<03:18,  2.08it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  56% 500/893 [03:55<03:05,  2.12it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  58% 520/893 [04:00<02:52,  2.16it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  60% 540/893 [04:04<02:40,  2.21it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  63% 560/893 [04:09<02:28,  2.24it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  65% 580/893 [04:14<02:17,  2.28it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  67% 600/893 [04:18<02:06,  2.32it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  69% 620/893 [04:23<01:56,  2.35it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  72% 640/893 [04:28<01:45,  2.39it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  74% 660/893 [04:32<01:36,  2.42it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  76% 680/893 [04:37<01:26,  2.45it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  78% 700/893 [04:42<01:17,  2.48it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  81% 720/893 [04:46<01:08,  2.51it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  83% 740/893 [04:51<01:00,  2.54it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  85% 760/893 [04:56<00:51,  2.57it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  87% 780/893 [05:00<00:43,  2.59it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  90% 800/893 [05:05<00:35,  2.62it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  92% 820/893 [05:09<00:27,  2.65it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  94% 840/893 [05:14<00:19,  2.67it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  96% 860/893 [05:19<00:12,  2.69it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Epoch 1:  99% 880/893 [05:23<00:04,  2.72it/s, loss=0.449, v_num=1, train_loss_step=0.242, train_acc_step=0.875, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+Validating:  99% 620/625 [02:24<00:01,  4.31it/s]\
+Validating: 100% 625/625 [02:26<00:00,  4.19it/s]--------------------\
+Validation avg_loss:  tensor(0.7849, device='cuda:0')\
+Validation avg_acc:  tensor(0.7539, device='cuda:0')\
+Writing predictions for /content/dev.csv to ./epoch_1_predictions.csv\
+--------------------\
+Epoch 1: 100% 893/893 [05:30<00:00,  2.70it/s, loss=0.421, v_num=1, train_loss_step=0.662, train_acc_step=0.812, train_loss_epoch=0.834, train_acc_epoch=0.625]\
+                                                 --------------------\
+Train avg_loss:  tensor(0.4513, device='cuda:0')\
+Train avg_acc:  tensor(0.8505, device='cuda:0')\
+--------------------\
+tcmalloc: large alloc 1707515904 bytes == 0x557aa6ef6000 @  0x7f1437501615 0x557a1ce594cc 0x557a1cf3947a 0x557a1ce5ff0c 0x7f14327539e4 0x7f143275bb14 0x7f1432730a60 0x7f1389f0ef55 0x7f1389f0a88e 0x7f1389f12235 0x7f1432730fae 0x7f1431ea7aa8 0x557a1ce5d098 0x557a1ced04d9 0x557a1cecaced 0x557a1ce5dbda 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecfd00 0x557a1ce5dafa 0x557a1cecb915 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ce5dafa 0x557a1cecbc0d 0x557a1ceca9ee 0x557a1ce5dbda 0x557a1cecbc0d 0x557a1ceca9ee\
+Epoch 2:  31% 280/893 [03:04<06:42,  1.52it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Validating: 0it [00:00, ?it/s]\
+Validating:   0% 0/625 [00:00<?, ?it/s]\
+Epoch 2:  34% 300/893 [03:09<06:14,  1.59it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  36% 320/893 [03:13<05:47,  1.65it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  38% 340/893 [03:18<05:22,  1.71it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  40% 360/893 [03:23<05:00,  1.77it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  43% 380/893 [03:27<04:40,  1.83it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  45% 400/893 [03:32<04:21,  1.88it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  47% 420/893 [03:37<04:04,  1.93it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  49% 440/893 [03:41<03:48,  1.98it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  52% 460/893 [03:46<03:33,  2.03it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  54% 480/893 [03:51<03:18,  2.08it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  56% 500/893 [03:55<03:05,  2.12it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  58% 520/893 [04:00<02:52,  2.16it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  60% 540/893 [04:05<02:40,  2.20it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  63% 560/893 [04:09<02:28,  2.24it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  65% 580/893 [04:14<02:17,  2.28it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  67% 600/893 [04:18<02:06,  2.32it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  69% 620/893 [04:23<01:56,  2.35it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  72% 640/893 [04:28<01:46,  2.39it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  74% 660/893 [04:32<01:36,  2.42it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  76% 680/893 [04:37<01:26,  2.45it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  78% 700/893 [04:42<01:17,  2.48it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  81% 720/893 [04:46<01:08,  2.51it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  83% 740/893 [04:51<01:00,  2.54it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  85% 760/893 [04:55<00:51,  2.57it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  87% 780/893 [05:00<00:43,  2.59it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  90% 800/893 [05:05<00:35,  2.62it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  92% 820/893 [05:09<00:27,  2.65it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  94% 840/893 [05:14<00:19,  2.67it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  96% 860/893 [05:19<00:12,  2.69it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Epoch 2:  99% 880/893 [05:23<00:04,  2.72it/s, loss=0.384, v_num=1, train_loss_step=0.769, train_acc_step=0.812, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+Validating:  99% 620/625 [02:24<00:01,  4.32it/s]\
+Validating: 100% 625/625 [02:25<00:00,  4.20it/s]--------------------\
+Validation avg_loss:  tensor(0.9465, device='cuda:0')\
+Validation avg_acc:  tensor(0.7519, device='cuda:0')\
+Writing predictions for /content/dev.csv to ./epoch_2_predictions.csv\
+--------------------\
+Epoch 2: 100% 893/893 [05:30<00:00,  2.71it/s, loss=0.342, v_num=1, train_loss_step=0.0613, train_acc_step=1.000, train_loss_epoch=0.451, train_acc_epoch=0.851]\
+                                                 --------------------\
+Train avg_loss:  tensor(0.2891, device='cuda:0')\
+Train avg_acc:  tensor(0.9137, device='cuda:0')\
+--------------------\
+Epoch 3:  31% 280/893 [03:03<06:42,  1.52it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Validating: 0it [00:00, ?it/s]\
+Validating:   0% 0/625 [00:00<?, ?it/s]\
+Epoch 3:  34% 300/893 [03:09<06:13,  1.59it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  36% 320/893 [03:13<05:46,  1.65it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  38% 340/893 [03:18<05:22,  1.71it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  40% 360/893 [03:22<05:00,  1.77it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  43% 380/893 [03:27<04:40,  1.83it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  45% 400/893 [03:32<04:21,  1.89it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  47% 420/893 [03:36<04:04,  1.94it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  49% 440/893 [03:41<03:47,  1.99it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  52% 460/893 [03:46<03:32,  2.03it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  54% 480/893 [03:50<03:18,  2.08it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  56% 500/893 [03:55<03:04,  2.12it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  58% 520/893 [03:59<02:52,  2.17it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  60% 540/893 [04:04<02:39,  2.21it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  63% 560/893 [04:09<02:28,  2.25it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  65% 580/893 [04:13<02:16,  2.28it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  67% 600/893 [04:18<02:06,  2.32it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  69% 620/893 [04:23<01:55,  2.36it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  72% 640/893 [04:27<01:45,  2.39it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  74% 660/893 [04:32<01:36,  2.42it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  76% 680/893 [04:37<01:26,  2.45it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  78% 700/893 [04:41<01:17,  2.49it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  81% 720/893 [04:46<01:08,  2.52it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  83% 740/893 [04:50<01:00,  2.54it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  85% 760/893 [04:55<00:51,  2.57it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  87% 780/893 [05:00<00:43,  2.60it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  90% 800/893 [05:04<00:35,  2.63it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  92% 820/893 [05:09<00:27,  2.65it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  94% 840/893 [05:14<00:19,  2.67it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  96% 860/893 [05:18<00:12,  2.70it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Epoch 3:  99% 880/893 [05:23<00:04,  2.72it/s, loss=0.278, v_num=1, train_loss_step=0.607, train_acc_step=0.812, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+Validating:  99% 620/625 [02:24<00:01,  4.32it/s]\
+Validating: 100% 625/625 [02:25<00:00,  4.21it/s]--------------------\
+Validation avg_loss:  tensor(1.0974, device='cuda:0')\
+Validation avg_acc:  tensor(0.7661, device='cuda:0')\
+Writing predictions for /content/dev.csv to ./epoch_3_predictions.csv\
+--------------------\
+Epoch 3: 100% 893/893 [05:29<00:00,  2.71it/s, loss=0.293, v_num=1, train_loss_step=0.554, train_acc_step=0.875, train_loss_epoch=0.289, train_acc_epoch=0.914]\
+                                                 --------------------\
+Train avg_loss:  tensor(0.1924, device='cuda:0')\
+Train avg_acc:  tensor(0.9466, device='cuda:0')\
+--------------------\
+Epoch 4:  31% 280/893 [03:04<06:43,  1.52it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Validating: 0it [00:00, ?it/s]\
+Validating:   0% 0/625 [00:00<?, ?it/s]\
+Epoch 4:  34% 300/893 [03:09<06:14,  1.58it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  36% 320/893 [03:14<05:47,  1.65it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  38% 340/893 [03:18<05:23,  1.71it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  40% 360/893 [03:23<05:01,  1.77it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  43% 380/893 [03:28<04:41,  1.83it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  45% 400/893 [03:32<04:22,  1.88it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  47% 420/893 [03:37<04:04,  1.93it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  49% 440/893 [03:42<03:48,  1.98it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  52% 460/893 [03:46<03:33,  2.03it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  54% 480/893 [03:51<03:19,  2.08it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  56% 500/893 [03:55<03:05,  2.12it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  58% 520/893 [04:00<02:52,  2.16it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  60% 540/893 [04:05<02:40,  2.20it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  63% 560/893 [04:09<02:28,  2.24it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  65% 580/893 [04:14<02:17,  2.28it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  67% 600/893 [04:19<02:06,  2.32it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  69% 620/893 [04:23<01:56,  2.35it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  72% 640/893 [04:28<01:46,  2.38it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  74% 660/893 [04:32<01:36,  2.42it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  76% 680/893 [04:37<01:26,  2.45it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  78% 700/893 [04:42<01:17,  2.48it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  81% 720/893 [04:46<01:08,  2.51it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  83% 740/893 [04:51<01:00,  2.54it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  85% 760/893 [04:56<00:51,  2.57it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  87% 780/893 [05:00<00:43,  2.59it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  90% 800/893 [05:05<00:35,  2.62it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  92% 820/893 [05:10<00:27,  2.64it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  94% 840/893 [05:14<00:19,  2.67it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  96% 860/893 [05:19<00:12,  2.69it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Epoch 4:  99% 880/893 [05:23<00:04,  2.72it/s, loss=0.152, v_num=1, train_loss_step=0.389, train_acc_step=0.938, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+Validating:  99% 620/625 [02:24<00:01,  4.32it/s]\
+Validating: 100% 625/625 [02:25<00:00,  4.19it/s]--------------------\
+Validation avg_loss:  tensor(1.2354, device='cuda:0')\
+Validation avg_acc:  tensor(0.7641, device='cuda:0')\
+Writing predictions for /content/dev.csv to ./epoch_4_predictions.csv\
+--------------------\
+Epoch 4: 100% 893/893 [05:30<00:00,  2.70it/s, loss=0.169, v_num=1, train_loss_step=0.00496, train_acc_step=1.000, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+                                                 --------------------\
+Train avg_loss:  tensor(0.1222, device='cuda:0')\
+Train avg_acc:  tensor(0.9657, device='cuda:0')\
+--------------------\
+Epoch 4: 100% 893/893 [05:38<00:00,  2.64it/s, loss=0.169, v_num=1, train_loss_step=0.00496, train_acc_step=1.000, train_loss_epoch=0.192, train_acc_epoch=0.947]\
+}
