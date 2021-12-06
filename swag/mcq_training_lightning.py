@@ -3,7 +3,7 @@ import pytorch_lightning as pl
 from torch.nn import functional as F
 import pandas as pd
 import argparse
-from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer
+from transformers import AutoConfig, AutoModelForMultipleChoice, AutoTokenizer
 from torch.utils.data import Dataset, DataLoader
 from transformers import (
     AdamW,
@@ -11,27 +11,34 @@ from transformers import (
 )
 
 
-class NLIDataset(Dataset):
+class MCQDataset(Dataset):
     def __init__(self, tokenizer, df_file_name, input_max_len=512, max_samples=-1):
         self.tokenizer = tokenizer
         self.df = pd.read_csv(df_file_name)
         if (max_samples != -1):
             self.df = self.df.head(max_samples)
         self.input_max_len = input_max_len
+        columns = list(self.df.columns)
+        self.num_options = len([x for x in columns if x.startswith("ending")])
 
     def __getitem__(self, index):
-        sentence1 = str(self.df.iloc[index]["sentence1"])
+        sentence1 = str(self.df.iloc[index]["sent1"])
 
-        if ('sentence2' in self.df.columns):
-            sentence2 = str(self.df.iloc[index]["sentence2"])
+        if ('sent2' in self.df.columns):
+            sentence2 = str(self.df.iloc[index]["sent2"])
         else:
             sentence2 = None
 
+        options = []
+        for i in range(self.num_options):
+            options.append(f"{sentence2} {self.df.iloc[index]['ending' + str(i)]}")
+
         label = self.df.iloc[index]["label"]
+        sentence1 = [sentence1] * self.num_options
 
         instance_encoding = self._get_encoding(
             sentence1=sentence1,
-            sentence2=sentence2,
+            sentence2=options,
             add_special_tokens=True,
             truncation=True,
             max_length=self.input_max_len,
@@ -45,7 +52,8 @@ class NLIDataset(Dataset):
 
     def _get_encoding(self, sentence1, sentence2, add_special_tokens=False, truncation=True, max_length=-1,
                       padding=None):
-        encoded_input = self.tokenizer.encode_plus(
+
+        encoded_input = self.tokenizer(
             sentence1,
             sentence2,
             add_special_tokens=add_special_tokens,
@@ -58,7 +66,12 @@ class NLIDataset(Dataset):
         if "num_truncated_tokens" in encoded_input and encoded_input["num_truncated_tokens"] > 0:
             # print("Attention! you are cropping tokens")
             pass
+
+        # tokenized_inputs = {k: [v[i: i + args.num_options] for i in range(0, len(v), args.num_options)] for k, v in
+        #                     tokenized_example.items()}
+
         input_ids = encoded_input["input_ids"].squeeze(0)
+
         attention_mask = encoded_input["attention_mask"].squeeze(0) if "attention_mask" in encoded_input else None
         token_type_ids = encoded_input["token_type_ids"].squeeze(0) if "token_type_ids" in encoded_input else None
         data_input = {
@@ -79,19 +92,18 @@ def compute_accuracy(logits, labels):
     return acc, predicted_label
 
 
-class ClassificationModel(pl.LightningModule):
+class MCQModel(pl.LightningModule):
     def __init__(self, training_arguments, model_arguments, other_arguments):
-        super(ClassificationModel, self).__init__()
+        super(MCQModel, self).__init__()
 
         self.training_arguments = training_arguments
         self.model_arguments = model_arguments
         self.other_arguments = other_arguments
         self.tokenizer = AutoTokenizer.from_pretrained(model_arguments.model_name_or_path)
         config = AutoConfig.from_pretrained(model_arguments.model_name_or_path,
-                                            num_labels=model_arguments.num_labels,
                                             hidden_dropout_prob=model_arguments.hidden_dropout_prob)
 
-        self.model = AutoModelForSequenceClassification.from_pretrained(model_arguments.model_name_or_path, config=config)
+        self.model = AutoModelForMultipleChoice.from_pretrained(model_arguments.model_name_or_path, config=config)
         self.save_hyperparameters("training_arguments")
         self.save_hyperparameters("model_arguments")
 
@@ -208,7 +220,7 @@ class ClassificationModel(pl.LightningModule):
         self.lr_scheduler.step()
 
     def train_dataloader(self):
-        train_dataset = NLIDataset(
+        train_dataset = MCQDataset(
             tokenizer=self.tokenizer,
             df_file_name=self.other_arguments.TRAIN_FILE,
             input_max_len=self.model_arguments.max_input_seq_length,
@@ -233,7 +245,7 @@ class ClassificationModel(pl.LightningModule):
         return dataloader
 
     def val_dataloader(self):
-        val_dataset = NLIDataset(
+        val_dataset = MCQDataset(
             tokenizer=self.tokenizer,
             df_file_name=self.other_arguments.DEV_FILE,
             input_max_len=self.model_arguments.max_input_seq_length,
@@ -264,7 +276,6 @@ if __name__ == "__main__":
     model_arguments = parser.add_argument_group('model_arguments')
     model_arguments.add_argument("--model_name_or_path", default=None)
     model_arguments.add_argument("--max_input_seq_length", default=512, type=int)
-    model_arguments.add_argument("--num_labels", type=int)
     model_arguments.add_argument('--hidden_dropout_prob', type=float, default=0.15)
 
     # Other arguments
@@ -277,7 +288,7 @@ if __name__ == "__main__":
     other_arguments.add_argument("--eval_batch_size", default=2, type=int)
     other_arguments.add_argument("--max_train_samples", default=-1, type=int)
     other_arguments.add_argument("--num_train_epochs", default=2, type=int)
-    other_arguments.add_argument("--gradient_accumulation_steps", default=4, type=int)
+    other_arguments.add_argument("--gradient_accumulation_steps", default=1, type=int)
     other_arguments.add_argument("--seed", default=42, type=int)
     other_arguments.add_argument("--save_top_k", default=-1, type=int)
     other_arguments.add_argument("--save_last", default=False, action="store_true")
@@ -313,7 +324,7 @@ if __name__ == "__main__":
     print("--------------------")
 
     pl.seed_everything(other_arguments.seed)
-    model = ClassificationModel(training_arguments=training_arguments,
+    model = MCQModel(training_arguments=training_arguments,
                                 model_arguments=model_arguments,
                                 other_arguments=other_arguments)
 
@@ -349,4 +360,3 @@ if __name__ == "__main__":
 
     trainer = pl.Trainer(**train_params)
     trainer.fit(model)
-

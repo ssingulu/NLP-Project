@@ -1,0 +1,53 @@
+Start:
+Train avg_loss:  tensor(0.1120, device='cuda:0')
+Train avg_acc:  tensor(0.9636, device='cuda:0')
+Confidence: 0.9473455548286438
+confidence[confidence_sorted_indices[200]]: 0.7816274225711822
+
+Easy:
+Train avg_loss:  tensor(0.7167, device='cuda:0')
+Train avg_acc:  tensor(0.8333, device='cuda:0')
+
+Ambi:
+Train avg_loss:  tensor(0.4410, device='cuda:0')
+Train avg_acc:  tensor(0.9028, device='cuda:0')
+
+Hard:
+Train avg_loss:  tensor(0.0649, device='cuda:0')
+Train avg_acc:  tensor(0.9859, device='cuda:0')
+
+train_ambi_100_hard_100:
+Train avg_loss:  tensor(0.1307, device='cuda:0')
+Train avg_acc:  tensor(0.9712, device='cuda:0')
+
+train_ambi_50_hard_50:
+Train avg_loss:  tensor(0.1774, device='cuda:0')
+Train avg_acc:  tensor(0.9442, device='cuda:0')
+
+train_ambi_75_hard_100:
+Train avg_loss:  tensor(0.1307, device='cuda:0')
+Train avg_acc:  tensor(0.9712, device='cuda:0')
+
+train_easy_100_ambi_100:
+Train avg_loss:  tensor(0.1288, device='cuda:0')
+Train avg_acc:  tensor(0.9680, device='cuda:0')
+
+train_easy_50_ambi_50:
+Train avg_loss:  tensor(0.2053, device='cuda:0')
+Train avg_acc:  tensor(0.9395, device='cuda:0')
+
+train_easy_50_ambi_50_hard_100:
+Train avg_loss:  tensor(0.1043, device='cuda:0')
+Train avg_acc:  tensor(0.9758, device='cuda:0')
+
+train_easy_50_hard_100
+Train avg_loss:  tensor(0.1288, device='cuda:0')
+Train avg_acc:  tensor(0.9680, device='cuda:0')
+
+train_easy_75_ambi_100
+Train avg_loss:  tensor(0.2053, device='cuda:0')
+Train avg_acc:  tensor(0.9395, device='cuda:0')
+
+train_easy_75_hard_100
+Train avg_loss:  tensor(0.1288, device='cuda:0')
+Train avg_acc:  tensor(0.9680, device='cuda:0')
