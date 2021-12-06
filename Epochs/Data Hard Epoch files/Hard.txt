@@ -1,0 +1,172 @@
+Training arguments Namespace(adam_epsilon=1e-08, distributed_backend=None, early_stop_callback=False, fp_16=False, max_grad_norm=1.0, n_gpu=-1, num_workers=8, opt_level='O1', warmup_steps=0, weight_decay=0.0)
+--------------------
+Model arguments Namespace(hidden_dropout_prob=0.15, max_input_seq_length=128, model_name_or_path='bert-base-uncased')
+--------------------
+Other arguments Namespace(DEV_FILE='/content/devnewdata_2.csv', TRAIN_FILE='/content/data_hard.csv', do_fast_dev_run=False, eval_batch_size=8, gradient_accumulation_steps=1, learning_rate=5e-05, limit_train_batches=-1, limit_val_batches=-1, max_train_samples=-1, num_train_epochs=5, output_dir='./', predictions_file='predictions.csv', save_last=False, save_top_k=-1, seed=42, train_batch_size=8, write_dev_predictions=True)
+--------------------
+Global seed set to 42
+Downloading: 100% 28.0/28.0 [00:00<00:00, 23.7kB/s]
+Downloading: 100% 570/570 [00:00<00:00, 431kB/s]
+Downloading: 100% 226k/226k [00:00<00:00, 320kB/s]
+Downloading: 100% 455k/455k [00:00<00:00, 643kB/s]
+Downloading: 100% 420M/420M [00:10<00:00, 40.3MB/s]
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForMultipleChoice: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertForMultipleChoice from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForMultipleChoice from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForMultipleChoice were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name  | Type                  | Params
+------------------------------------------------
+0 | model | BertForMultipleChoice | 109 M 
+------------------------------------------------
+109 M     Trainable params
+0         Non-trainable params
+109 M     Total params
+437.932   Total estimated model params size (MB)
+/usr/local/lib/python3.7/dist-packages/pytorch_lightning/callbacks/model_checkpoint.py:623: UserWarning: Checkpoint directory /content exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+Validation sanity check: 0it [00:00, ?it/s]/usr/local/lib/python3.7/dist-packages/torch/utils/data/dataloader.py:481: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  cpuset_checked))
+Validation sanity check:   0% 0/2 [00:00<?, ?it/s]--------------------
+Validation avg_loss:  tensor(1.1031, device='cuda:0')
+Validation avg_acc:  tensor(0.2500, device='cuda:0')
+Writing predictions for /content/devnewdata_2.csv to ./epoch_0_predictions.csv
+--------------------
+Global seed set to 42
+/usr/local/lib/python3.7/dist-packages/pytorch_lightning/trainer/data_loading.py:408: UserWarning: The number of training samples (37) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  f"The number of training samples ({self.num_training_batches}) is smaller than the logging interval"
+Epoch 0:  14% 40/282 [00:38<03:51,  1.04it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Validating: 0it [00:00, ?it/s]
+Validating:   0% 0/245 [00:00<?, ?it/s]
+Epoch 0:  21% 60/282 [00:46<02:50,  1.30it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  28% 80/282 [00:53<02:14,  1.50it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  35% 100/282 [01:00<01:50,  1.65it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  43% 120/282 [01:08<01:31,  1.76it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  50% 140/282 [01:15<01:16,  1.86it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  57% 160/282 [01:22<01:02,  1.94it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  64% 180/282 [01:29<00:50,  2.00it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  71% 200/282 [01:37<00:39,  2.06it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  78% 220/282 [01:44<00:29,  2.10it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  85% 240/282 [01:51<00:19,  2.15it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  92% 260/282 [01:59<00:10,  2.18it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Epoch 0:  99% 280/282 [02:06<00:00,  2.22it/s, loss=1.1, v_num=0, train_loss_step=1.020, train_acc_step=0.625]
+Validating: 100% 245/245 [01:29<00:00,  2.75it/s]--------------------
+Validation avg_loss:  tensor(1.0999, device='cuda:0')
+Validation avg_acc:  tensor(0.2939, device='cuda:0')
+Writing predictions for /content/devnewdata_2.csv to ./epoch_0_predictions.csv
+--------------------
+Epoch 0: 100% 282/282 [02:08<00:00,  2.20it/s, loss=1.11, v_num=0, train_loss_step=1.100, train_acc_step=0.375]
+                                                 --------------------
+Train avg_loss:  tensor(1.1058, device='cuda:0')
+Train avg_acc:  tensor(0.3243, device='cuda:0')
+--------------------
+tcmalloc: large alloc 1092804608 bytes == 0x558b9dcb6000 @  0x7f4476917615 0x558ac666a4cc 0x558ac674a47a 0x558ac6670f0c 0x7f4471b699e4 0x7f4471b71b14 0x7f4471b46a60 0x7f43c9324f55 0x7f43c932088e 0x7f43c9328235 0x7f4471b46fae 0x7f44712bdaa8 0x558ac666e098 0x558ac66e14d9 0x558ac66dbced 0x558ac666ebda 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66e0d00 0x558ac666eafa 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac666eafa 0x558ac66dcc0d 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac66db9ee
+tcmalloc: large alloc 1366007808 bytes == 0x558be759e000 @  0x7f4476917615 0x558ac666a4cc 0x558ac674a47a 0x558ac6670f0c 0x7f4471b699e4 0x7f4471b71b14 0x7f4471b46a60 0x7f43c9324f55 0x7f43c932088e 0x7f43c9328235 0x7f4471b46fae 0x7f44712bdaa8 0x558ac666e098 0x558ac66e14d9 0x558ac66dbced 0x558ac666ebda 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66e0d00 0x558ac666eafa 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac666eafa 0x558ac66dcc0d 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac66db9ee
+tcmalloc: large alloc 1707515904 bytes == 0x558b69af8000 @  0x7f4476917615 0x558ac666a4cc 0x558ac674a47a 0x558ac6670f0c 0x7f4471b699e4 0x7f4471b71b14 0x7f4471b46a60 0x7f43c9324f55 0x7f43c932088e 0x7f43c9328235 0x7f4471b46fae 0x7f44712bdaa8 0x558ac666e098 0x558ac66e14d9 0x558ac66dbced 0x558ac666ebda 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66e0d00 0x558ac666eafa 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac666eafa 0x558ac66dcc0d 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac66db9ee
+Epoch 1:  14% 40/282 [00:38<03:52,  1.04it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Validating: 0it [00:00, ?it/s]
+Validating:   0% 0/245 [00:00<?, ?it/s]
+Epoch 1:  21% 60/282 [00:46<02:51,  1.30it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  28% 80/282 [00:53<02:15,  1.49it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  35% 100/282 [01:00<01:50,  1.64it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  43% 120/282 [01:08<01:31,  1.76it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  50% 140/282 [01:15<01:16,  1.86it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  57% 160/282 [01:22<01:03,  1.93it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  64% 180/282 [01:29<00:50,  2.00it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  71% 200/282 [01:37<00:39,  2.06it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  78% 220/282 [01:44<00:29,  2.11it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  85% 240/282 [01:51<00:19,  2.15it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  92% 260/282 [01:59<00:10,  2.18it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Epoch 1:  99% 280/282 [02:06<00:00,  2.22it/s, loss=1.09, v_num=0, train_loss_step=1.100, train_acc_step=0.375, train_loss_epoch=1.110, train_acc_epoch=0.324]
+Validating: 100% 245/245 [01:29<00:00,  2.74it/s]--------------------
+Validation avg_loss:  tensor(1.1186, device='cuda:0')
+Validation avg_acc:  tensor(0.2872, device='cuda:0')
+Writing predictions for /content/devnewdata_2.csv to ./epoch_1_predictions.csv
+--------------------
+Epoch 1: 100% 282/282 [02:08<00:00,  2.20it/s, loss=1.1, v_num=0, train_loss_step=1.100, train_acc_step=0.250, train_loss_epoch=1.110, train_acc_epoch=0.324] 
+                                                 --------------------
+Train avg_loss:  tensor(1.0954, device='cuda:0')
+Train avg_acc:  tensor(0.3547, device='cuda:0')
+--------------------
+tcmalloc: large alloc 1707515904 bytes == 0x558b69af8000 @  0x7f4476917615 0x558ac666a4cc 0x558ac674a47a 0x558ac6670f0c 0x7f4471b699e4 0x7f4471b71b14 0x7f4471b46a60 0x7f43c9324f55 0x7f43c932088e 0x7f43c9328235 0x7f4471b46fae 0x7f44712bdaa8 0x558ac666e098 0x558ac66e14d9 0x558ac66dbced 0x558ac666ebda 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66e0d00 0x558ac666eafa 0x558ac66dc915 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac666eafa 0x558ac66dcc0d 0x558ac66db9ee 0x558ac666ebda 0x558ac66dcc0d 0x558ac66db9ee
+Epoch 2:  14% 40/282 [00:38<03:51,  1.04it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Validating: 0it [00:00, ?it/s]
+Validating:   0% 0/245 [00:00<?, ?it/s]
+Epoch 2:  21% 60/282 [00:46<02:50,  1.30it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  28% 80/282 [00:53<02:14,  1.50it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  35% 100/282 [01:00<01:50,  1.65it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  43% 120/282 [01:07<01:31,  1.76it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  50% 140/282 [01:15<01:16,  1.86it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  57% 160/282 [01:22<01:02,  1.94it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  64% 180/282 [01:29<00:50,  2.00it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  71% 200/282 [01:37<00:39,  2.06it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  78% 220/282 [01:44<00:29,  2.11it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  85% 240/282 [01:51<00:19,  2.15it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  92% 260/282 [01:58<00:10,  2.19it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Epoch 2:  99% 280/282 [02:06<00:00,  2.22it/s, loss=1.04, v_num=0, train_loss_step=0.988, train_acc_step=0.500, train_loss_epoch=1.100, train_acc_epoch=0.355]
+Validating: 100% 245/245 [01:29<00:00,  2.75it/s]--------------------
+Validation avg_loss:  tensor(1.3286, device='cuda:0')
+Validation avg_acc:  tensor(0.3112, device='cuda:0')
+Writing predictions for /content/devnewdata_2.csv to ./epoch_2_predictions.csv
+--------------------
+Epoch 2: 100% 282/282 [02:08<00:00,  2.20it/s, loss=0.959, v_num=0, train_loss_step=0.931, train_acc_step=0.625, train_loss_epoch=1.100, train_acc_epoch=0.355]
+                                                 --------------------
+Train avg_loss:  tensor(0.9952, device='cuda:0')
+Train avg_acc:  tensor(0.5304, device='cuda:0')
+--------------------
+Epoch 3:  14% 40/282 [00:38<03:51,  1.04it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Validating: 0it [00:00, ?it/s]
+Validating:   0% 0/245 [00:00<?, ?it/s]
+Epoch 3:  21% 60/282 [00:46<02:50,  1.30it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  28% 80/282 [00:53<02:14,  1.50it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  35% 100/282 [01:00<01:50,  1.65it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  43% 120/282 [01:08<01:31,  1.76it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  50% 140/282 [01:15<01:16,  1.86it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  57% 160/282 [01:22<01:03,  1.94it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  64% 180/282 [01:29<00:50,  2.00it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  71% 200/282 [01:37<00:39,  2.06it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  78% 220/282 [01:44<00:29,  2.10it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  85% 240/282 [01:51<00:19,  2.15it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  92% 260/282 [01:59<00:10,  2.18it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Epoch 3:  99% 280/282 [02:06<00:00,  2.22it/s, loss=0.737, v_num=0, train_loss_step=0.561, train_acc_step=0.875, train_loss_epoch=0.995, train_acc_epoch=0.530]
+Validating: 100% 245/245 [01:29<00:00,  2.73it/s]--------------------
+Validation avg_loss:  tensor(1.6126, device='cuda:0')
+Validation avg_acc:  tensor(0.2908, device='cuda:0')
+Writing predictions for /content/devnewdata_2.csv to ./epoch_3_predictions.csv
+--------------------
+Epoch 3: 100% 282/282 [02:08<00:00,  2.20it/s, loss=0.666, v_num=0, train_loss_step=0.539, train_acc_step=0.750, train_loss_epoch=0.995, train_acc_epoch=0.530]
+                                                 --------------------
+Train avg_loss:  tensor(0.6995, device='cuda:0')
+Train avg_acc:  tensor(0.7128, device='cuda:0')
+--------------------
+Epoch 4:  14% 40/282 [00:38<03:52,  1.04it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Validating: 0it [00:00, ?it/s]
+Validating:   0% 0/245 [00:00<?, ?it/s]
+Epoch 4:  21% 60/282 [00:46<02:51,  1.30it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  28% 80/282 [00:53<02:15,  1.49it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  35% 100/282 [01:00<01:50,  1.64it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  43% 120/282 [01:08<01:31,  1.76it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  50% 140/282 [01:15<01:16,  1.86it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  57% 160/282 [01:22<01:03,  1.93it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  64% 180/282 [01:30<00:51,  2.00it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  71% 200/282 [01:37<00:39,  2.06it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  78% 220/282 [01:44<00:29,  2.10it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  85% 240/282 [01:51<00:19,  2.14it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  92% 260/282 [01:59<00:10,  2.18it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Epoch 4:  99% 280/282 [02:06<00:00,  2.21it/s, loss=0.502, v_num=0, train_loss_step=0.273, train_acc_step=1.000, train_loss_epoch=0.700, train_acc_epoch=0.713]
+Validating: 100% 245/245 [01:29<00:00,  2.73it/s]--------------------
+Validation avg_loss:  tensor(1.6543, device='cuda:0')
+Validation avg_acc:  tensor(0.2949, device='cuda:0')
+Writing predictions for /content/devnewdata_2.csv to ./epoch_4_predictions.csv
+--------------------
+Epoch 4: 100% 282/282 [02:08<00:00,  2.20it/s, loss=0.56, v_num=0, train_loss_step=0.634, train_acc_step=0.750, train_loss_epoch=0.700, train_acc_epoch=0.713] 
+                                                 --------------------
+Train avg_loss:  tensor(0.5308, device='cuda:0')
+Train avg_acc:  tensor(0.8176, device='cuda:0')
+--------------------
+Epoch 4: 100% 282/282 [02:17<00:00,  2.06it/s, loss=0.56, v_num=0, train_loss_step=0.634, train_acc_step=0.750, train_loss_epoch=0.700, train_acc_epoch=0.713]
